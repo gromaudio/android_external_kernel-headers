@@ -72,7 +72,9 @@ struct led_classdev {
 	struct timer_list	 blink_timer;
 	int			 blink_brightness;
 
+#ifdef __KERNEL__
 	struct work_struct	set_brightness_work;
+#endif
 	int			delayed_set_value;
 
 #ifdef CONFIG_LEDS_TRIGGERS
